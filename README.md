@@ -87,7 +87,9 @@ Defined in `losses.py` as MasterLoss. It aggregates:
 NAFNet: Architecture based on "NAFSSR: Stereo Image Super-Resolution Using NAFNet".
 LPIPS/SSIM: Metrics calculated using torchmetrics.
 
-NAFNet Citation:
+**NAFNet original paper citation:**
+
+```bibtex
 @InProceedings{chu2022nafssr,
     author    = {Chu, Xiaojie and Chen, Liangyu and Yu, Wenqing},
     title     = {NAFSSR: Stereo Image Super-Resolution Using NAFNet},
@@ -95,4 +97,4 @@ NAFNet Citation:
     month     = {June},
     year      = {2022},
     pages     = {1239-1248}
-}}
+}
