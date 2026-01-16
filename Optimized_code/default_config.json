@@ -1,0 +1,64 @@
+{
+    "data": {
+    	"train_dir": "D:\\Academia\\PHD\\Denoising_paper\\Pool_of_images\\Cancer_cell_dataset\\Ims\\Train",
+    	"val_dir": "D:\\Academia\\PHD\\Denoising_paper\\Pool_of_images\\Cancer_cell_dataset\\Ims\\Val",
+    	"test_dir": "D:\\Academia\\PHD\\Denoising_paper\\Pool_of_images\\Cancer_cell_dataset\\Ims\\Test",
+        "crop_size": 128,
+        "batch_size_train": 4,
+        "batch_size_val": 4,
+        "num_workers_train": 4,
+        "num_workers_val": 2,
+        "test_size": 0.04,
+        "augmentation_prob": 0.5
+    },
+    "model": {
+        "img_channel": 1,
+        "width": 16,
+        "middle_blk_num": 12,
+        "enc_blks": [2, 2, 4, 8],
+        "dec_blks": [2, 2, 2, 2],
+        "discriminator_type": "deep"
+    },
+    "loss_weights": {
+        "lambda_lpips": 3.0,
+        "lambda_vgg": 0.0,
+        "lambda_charb": 0.5,
+        "lambda_ssim": 0.0,
+        "lambda_lap": 2.0,
+        "lambda_edge": 0.0,
+        "lambda_fft_cc": 0.5,
+        "lambda_fft": 0.0,
+        "lambda_gan": 0.5,
+        "r1_gamma": 0.0
+    },
+    "training": {
+        "num_epochs": 100,
+        "learning_rate_g": 0.0001,
+        "learning_rate_d": 0.0001,
+        "beta1": 0.5,
+        "beta2": 0.999,
+        "scheduler_t_max": 20,
+        "gradient_clip": 1.0,
+        "mixed_precision": true,
+        "visualization_interval": 1,
+        "supervised": false,
+        "use_gan": true,
+        "loss_type": "enhanced_deblur"
+    },
+    "paths": {
+        "checkpoint_path": "checkpoints/NAFNet_GAN_best_model.pth",
+        "latest_checkpoint": "checkpoints/NAFNet_GAN_latest_model.pth",
+        "pretrained_path": null,
+        "output_dir": "outputs",
+        "visualization_dir": "training_visuals",
+        "log_file": "logs/training_log.csv"
+    },
+    "inference": {
+        "input_dir": "D:\\Academia\\PHD\\Denoising_paper\\Pool_of_images\\Cancer_cell_dataset\\Ims\\Test",
+        "output_dir": "outputs/predictions",
+        "model_path": "checkpoints/NAFNet_GAN_best_model.pth",
+        "batch_size": 1,
+        "padding_multiple": 32,
+        "save_format": "tif"
+    }
+}
