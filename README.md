@@ -7,10 +7,14 @@
 A high-performance restoration framework for biological imagery using **NAFNet** (Nonlinear Activation-Free Network) combined with **GAN** and **Perceptual** losses. Designed for real-time inference and recovering fine structural details.
 
 ## Overview
+The system is optimized for:
+- Real-time or near–real-time inference
+- High-fidelity structural restoration
+- Flexible training with or without paired ground truth data
 
-This repository contains the implementation of a hybrid deep learning model for image restoration (denoising, deblurring). It integrates the efficiency of **NAFNet** as a generator with a **Deep Discriminator** and a comprehensive **MasterLoss** (combining Charbonnier, Laplacian, and VGG-based perceptual losses).
-
-The project supports both **paired training** (Clean $\leftrightarrow$ Noisy) and **self-supervised training** (synthetic noise generation), making it adaptable to various biological datasets where ground truth might be scarce.
+Training and inference can be executed either:
+- **Interactively via Jupyter Notebooks**, or  
+- **Reproducibly via terminal scripts (`train.py`, `inference.py`)**
 
 **Key Features**:
 - **NAFNet Generator**: Uses `SimpleGate` and `LayerNorm2d` for activation-free, low-latency restoration.
@@ -48,9 +52,44 @@ torchmetrics
 ├── models.py              # NAFNet Generator and Deep Discriminator architectures
 ├── Main_Notebook.ipynb    # Main training loop, model initialization, and visualization
 ├── Inference.ipynb        # Inference script for restoring new images (handles padding)
-└── training_visuals/      # Directory for saving training progress and validation outputs
+└── Optimized code/        # Directory for optimized execution
+│  ├── config.py              # Configuration management
+│  ├── dataloader.py          # Dataset class for loading paired (Noisy, GT) images
+│  ├── dataloader_selfsup.py  # Dataset class for self-supervised learning (synthetic noise)
+│  ├── default_config.json    # Default experiment configuration
+│  ├── inference.py           # Inference script (terminal)
+│  ├── losses.py              # Custom loss modules (MasterLoss, Charbonnier, Laplacian, VGG/Perceptual)
+│  ├── models.py              # NAFNet Generator and Deep Discriminator architectures
+│  ├── train.py               # Training script (terminal)
+│  └── utils.py               # Padding, checkpoints, helpers
+
 ```
-**Storage**: 10GB+ free space for outputs.
+## Installation
+### 1. Create Conda Environment
+
+```
+conda create -n nafnet python=3.10 -y
+conda activate nafnet
+```
+
+### 2. Install PyTorch (CUDA example)
+```
+# CUDA 11.8
+conda install pytorch torchvision pytorch-cuda=11.8 -c pytorch -c nvidia -y
+
+# CPU only (optional)
+# conda install pytorch torchvision cpuonly -c pytorch -y
+```
+
+### 3. Install Dependencies
+```
+pip install scikit-image pandas tqdm matplotlib
+pip install torchmetrics lpips
+```
+### 4. Verify Installation
+```
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+```
 
 ## Usage
 ### 1. Training
