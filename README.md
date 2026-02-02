@@ -252,6 +252,21 @@ The **MasterLoss**, defined in `losses.py`, integrates multiple complementary ob
   Perceptual metrics and feature representations are computed using `torchmetrics`.
 
 ---
+## Update (01-02-2026). The paper has ben submitted to biorXiv. Please, cite it if you use this repository.
+
+```bibtex
+@article {Rey-Paniagua2026.01.22.701051,
+	author = {Rey-Paniagua, Guillermo and Lachowski, Dariusz and Mu{\~n}oz-Barrutia, Arrate},
+	title = {High-fidelity bioimage restoration via adversarial learning},
+	elocation-id = {2026.01.22.701051},
+	year = {2026},
+	doi = {10.64898/2026.01.22.701051},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2026/01/24/2026.01.22.701051},
+	eprint = {https://www.biorxiv.org/content/early/2026/01/24/2026.01.22.701051.full.pdf},
+	journal = {bioRxiv}
+}
+
 
 ## Original NAFNet Citation
 
