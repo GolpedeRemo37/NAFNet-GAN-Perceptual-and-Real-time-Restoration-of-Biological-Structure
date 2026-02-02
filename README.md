@@ -255,7 +255,7 @@ The **MasterLoss**, defined in `losses.py`, integrates multiple complementary ob
 ## Update (01-02-2026). The paper has ben submitted to biorXiv. Please, cite it if you use this repository.
 
 ```bibtex
-@article {Rey-Paniagua2026.01.22.701051,
+@article {NAFNetGAN_ReyPaniagua,
 	author = {Rey-Paniagua, Guillermo and Lachowski, Dariusz and Mu{\~n}oz-Barrutia, Arrate},
 	title = {High-fidelity bioimage restoration via adversarial learning},
 	elocation-id = {2026.01.22.701051},
